@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> django forms </title>
+    {% include 'onlineapp/css.html' %}
+
+</head>
+<body>
+<h1 align="center">COLLEGES LIST</h1>
+<p align="center"><a href="{% url 'onlineapp:logout' %}">LOGOUT</a></p>
+{% if 'onlineapp.add_college' in userpermissions %}
+<p align="center"><a href="{% url 'onlineapp:add_colleges' %}">AddCollege</a></p>
+{% endif %}
+<table class="table">
+    {% for i in jails %}
+    <tr>
+        <td>
+            {{i.id}}
+        </td>
+        <td>
+            <a href="{% url 'onlineapp:college_list' i.id%}">{{i.name}}</a>
+        </td>
+        <td>
+            {{i.location}}
+        </td>
+        {% if 'onlineapp.change_student' in userpermissions %}
+        <td>
+           <a href="{% url 'onlineapp:update_college' i.id%}">Edit</a>
+        </td>
+        {% endif %}
+        {% if 'onlineapp.delete_student' in userpermissions %}
+        <td>
+            <a href="{% url 'onlineapp:deleteCollege' i.id%}">delete</a>
+        </td>
+        {% endif %}
+    </tr>
+    {%endfor%}
+</table>
+</body>
+</html>

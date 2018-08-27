@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    {% include 'onlineapp/css.html' %}
+</head>
+<body>
+<a href="{% url 'onlineapp:signUp' %}">signUp</a>
+<form method="post">
+        {% csrf_token %}
+<label for="{{form.lastname.id_for_label}}">username</label>
+{{form.username}}
+<label for="{{form.password.id_for_label}}">Password</label>
+{{form.password}}
+    <input type="submit" value="login" class="btn btn-success">
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<script type="text/javascript">
+    function totalMarks(
+
+</script>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1">
+        {%for i in resList%}
+        <tr>
+            <td>
+                {{i.name}}
+            </td>
+            <td>
+                {{i.email}}
+            </td>
+            <td>
+                {{i.college__acronym}}
+            </td>
+            <td>
+                {{i.3}}
+            </td>
+            <td>
+                <input type="button" id="result" onclick="totalMarks(i)">
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>

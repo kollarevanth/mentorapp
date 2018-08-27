@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'onlineapp/css.html' %}
+</head>
+<body>
+{% if jail %}
+<a href="{% url 'onlineapp:add_student' jail.0.college.id%}">AddStudent</a>
+{% else %}
+<a href="{% url 'onlineapp:add_student' collegeid%}">AddStudent</a>
+{%endif%}
+<table class="table">
+    {% for i in jail %}
+    <tr>
+        <td>
+            {{i.id}}
+        </td>
+        <td>
+            {{i.name}}
+        </td>
+        <td>
+            {{i.mocktest1.total}}
+        </td>
+        <td>
+            <a href="{% url 'onlineapp:updateStudent' jail.0.college.id i.id %}">update</a>
+        </td>
+        <td>
+            <a href="{% url 'onlineapp:deleteStudent' i.id %}">delete</a>
+        </td>
+    </tr>
+    {%endfor%}
+</table>
+</body>
+</html>

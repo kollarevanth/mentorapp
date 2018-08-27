@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    {% for i in studentData %}
+    <tr>
+        <td>
+            {{i.name}}
+        </td>
+        <td>
+            {{i.email}}
+        </td>
+        <td>
+            {{i.db_folder}}
+        </td>
+        <td>
+            {{i.dropped_out}}
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
